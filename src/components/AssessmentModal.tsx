@@ -81,7 +81,7 @@ export const AssessmentModal = ({ isOpen, onClose }: AssessmentModalProps) => {
     };
 
     try {
-      const response = await fetch("https://n8n-642200223.kloudbeansite.com/webhook-test/assesment-data", {
+      const response = await fetch("https://n8n-642200223.kloudbeansite.com/webhook/assesment-data", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -188,8 +188,8 @@ export const AssessmentModal = ({ isOpen, onClose }: AssessmentModalProps) => {
                         whileTap={{ scale: 0.99 }}
                         onClick={() => handleAnswer(option)}
                         className={`w-full p-4 text-left rounded-xl border transition-all duration-200 ${answers[currentStep] === option
-                            ? "border-primary bg-jungle-light text-foreground"
-                            : "border-border hover:border-primary/30 hover:bg-secondary text-foreground"
+                          ? "border-primary bg-jungle-light text-foreground"
+                          : "border-border hover:border-primary/30 hover:bg-secondary text-foreground"
                           }`}
                       >
                         {option}
