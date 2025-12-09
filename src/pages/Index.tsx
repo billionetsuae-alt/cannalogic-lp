@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 import { Logo } from "@/components/Logo";
 import { SacredGeometryBg } from "@/components/SacredGeometryBg";
 import { HeroSection } from "@/components/HeroSection";
@@ -18,13 +20,18 @@ const Index = () => {
   const closeAssessment = () => setIsModalOpen(false);
 
   return (
-    <main className="min-h-screen bg-background relative">
+    <main className="min-h-screen bg-background relative overflow-x-hidden">
       <SacredGeometryBg />
       
       {/* Header */}
-      <header className="relative z-10 flex items-center justify-center py-6 px-4 border-b border-border/30">
+      <motion.header 
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="relative z-10 flex items-center justify-center py-5 px-4 border-b border-border"
+      >
         <Logo />
-      </header>
+      </motion.header>
 
       {/* Hero */}
       <div className="relative z-10">
@@ -32,12 +39,12 @@ const Index = () => {
       </div>
 
       {/* Video Section */}
-      <section className="relative z-10 px-4 pb-16">
+      <section className="relative z-10 px-4 pb-12 md:pb-16">
         <VideoSection videoUrl={VSL_VIDEO_URL} />
       </section>
 
       {/* Trust Badges */}
-      <section className="relative z-10 py-12 px-4">
+      <section className="relative z-10 py-10 md:py-12 px-4">
         <TrustBadges />
       </section>
 
@@ -52,25 +59,41 @@ const Index = () => {
       </div>
 
       {/* Final CTA Section */}
-      <section className="relative z-10 py-20 px-4">
-        <div className="max-w-2xl mx-auto text-center">
-          <h2 className="font-serif text-3xl md:text-4xl text-foreground mb-6">
+      <section className="relative z-10 py-16 md:py-24 px-4 bg-secondary">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="max-w-xl mx-auto text-center"
+        >
+          <motion.div 
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="section-divider mb-8"
+          />
+          <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-foreground mb-5">
             Ready to Begin Your Journey?
           </h2>
-          <p className="text-muted-foreground mb-8">
+          <p className="text-muted-foreground text-base md:text-lg mb-8">
             Take our 60-second assessment to discover if you're eligible for the Elevate Protocol.
           </p>
-          <button
+          <motion.button
+            whileHover={{ scale: 1.02, y: -2 }}
+            whileTap={{ scale: 0.98 }}
             onClick={openAssessment}
-            className="btn-gold py-4 px-10 rounded-lg text-lg inline-flex items-center gap-3"
+            className="btn-primary py-4 px-10 rounded-xl text-base md:text-lg inline-flex items-center gap-3 green-glow"
           >
             <span>START MY ASSESSMENT</span>
-          </button>
-        </div>
+            <ArrowRight className="w-5 h-5" />
+          </motion.button>
+        </motion.div>
       </section>
 
       {/* Footer */}
-      <footer className="relative z-10 py-8 px-4 border-t border-border/30">
+      <footer className="relative z-10 py-8 px-4 border-t border-border bg-background">
         <div className="max-w-4xl mx-auto text-center text-sm text-muted-foreground">
           <p>© 2024 CannaLogic. All rights reserved.</p>
           <p className="mt-2 text-xs">

@@ -7,8 +7,12 @@ export default {
   theme: {
     container: {
       center: true,
-      padding: "2rem",
+      padding: "1.5rem",
       screens: {
+        sm: "640px",
+        md: "768px",
+        lg: "1024px",
+        xl: "1200px",
         "2xl": "1400px",
       },
     },
@@ -50,14 +54,11 @@ export default {
         // Custom brand colors
         jungle: {
           DEFAULT: "hsl(var(--jungle-green))",
-        },
-        gold: {
-          DEFAULT: "hsl(var(--gold))",
-          muted: "hsl(var(--gold-muted))",
+          light: "hsl(var(--jungle-light))",
+          medium: "hsl(var(--jungle-medium))",
         },
         charcoal: {
           DEFAULT: "hsl(var(--charcoal))",
-          light: "hsl(var(--charcoal-light))",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
@@ -88,51 +89,56 @@ export default {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
-        "fade-in": {
-          "0%": { opacity: "0", transform: "translateY(10px)" },
+        "fade-up": {
+          "0%": { opacity: "0", transform: "translateY(20px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
+        "fade-in": {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
+        "scale-in": {
+          "0%": { opacity: "0", transform: "scale(0.95)" },
+          "100%": { opacity: "1", transform: "scale(1)" },
+        },
         "slide-up": {
-          "0%": { opacity: "0", transform: "translateY(30px)" },
+          "0%": { opacity: "0", transform: "translateY(40px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
         "slide-left": {
-          "0%": { opacity: "0", transform: "translateX(30px)" },
+          "0%": { opacity: "0", transform: "translateX(40px)" },
           "100%": { opacity: "1", transform: "translateX(0)" },
         },
         "slide-right": {
-          "0%": { opacity: "0", transform: "translateX(-30px)" },
+          "0%": { opacity: "0", transform: "translateX(-40px)" },
           "100%": { opacity: "1", transform: "translateX(0)" },
         },
-        "scale-in": {
-          "0%": { opacity: "0", transform: "scale(0.9)" },
-          "100%": { opacity: "1", transform: "scale(1)" },
-        },
         "stamp": {
-          "0%": { opacity: "0", transform: "scale(2) rotate(-10deg)" },
-          "50%": { opacity: "1", transform: "scale(0.95) rotate(-3deg)" },
+          "0%": { opacity: "0", transform: "scale(1.5) rotate(-8deg)" },
+          "60%": { opacity: "1", transform: "scale(0.95) rotate(-2deg)" },
           "100%": { opacity: "1", transform: "scale(1) rotate(-3deg)" },
-        },
-        "pulse-glow": {
-          "0%, 100%": { boxShadow: "0 0 30px hsl(43 72% 52% / 0.3)" },
-          "50%": { boxShadow: "0 0 50px hsl(43 72% 52% / 0.5)" },
         },
         "float": {
           "0%, 100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-10px)" },
+          "50%": { transform: "translateY(-8px)" },
+        },
+        "pulse-subtle": {
+          "0%, 100%": { opacity: "1" },
+          "50%": { opacity: "0.85" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "fade-up": "fade-up 0.6s ease-out forwards",
         "fade-in": "fade-in 0.5s ease-out forwards",
-        "slide-up": "slide-up 0.6s ease-out forwards",
-        "slide-left": "slide-left 0.5s ease-out forwards",
-        "slide-right": "slide-right 0.5s ease-out forwards",
         "scale-in": "scale-in 0.4s ease-out forwards",
-        "stamp": "stamp 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards",
-        "pulse-glow": "pulse-glow 3s ease-in-out infinite",
-        "float": "float 4s ease-in-out infinite",
+        "slide-up": "slide-up 0.7s ease-out forwards",
+        "slide-left": "slide-left 0.6s ease-out forwards",
+        "slide-right": "slide-right 0.6s ease-out forwards",
+        "stamp": "stamp 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards",
+        "float": "float 3s ease-in-out infinite",
+        "pulse-subtle": "pulse-subtle 2s ease-in-out infinite",
       },
     },
   },
