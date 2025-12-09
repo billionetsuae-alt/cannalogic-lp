@@ -1,13 +1,8 @@
 import { motion } from "framer-motion";
 import { Shield, Leaf, Scale } from "lucide-react";
 
-const badges = [
-  { img: "/organic.png", alt: "100% Organic" },
-  { img: "/ayurveda.png", alt: "Ayurvedic Proprietary Medicine" },
-  { img: "/result.png", alt: "100% Results" },
-  { img: "/doctor.png", alt: "Doctor Prescribed" },
-  { img: "/ministry of ayush.png", alt: "Ministry of Ayush" },
-];
+// Image strip contains all badges
+
 
 export const TrustBadges = () => {
   return (
@@ -17,25 +12,13 @@ export const TrustBadges = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.5 }}
-        className="flex flex-wrap justify-center items-center gap-6 md:gap-10"
+        className="flex justify-center items-center w-full max-w-5xl mx-auto px-4"
       >
-        {badges.map((badge, index) => (
-          <motion.div
-            key={badge.alt}
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: index * 0.1 }}
-            whileHover={{ scale: 1.05 }}
-            className="w-20 md:w-28 lg:w-32"
-          >
-            <img
-              src={badge.img}
-              alt={badge.alt}
-              className="w-full h-auto object-contain"
-            />
-          </motion.div>
-        ))}
+        <img
+          src="/organic.png"
+          alt="Trust Badges - 100% Organic, Ayurvedic, Results, Doctor Prescribed, Ministry of Ayush"
+          className="w-full h-auto object-contain md:max-w-4xl"
+        />
       </motion.div>
 
       <motion.div
