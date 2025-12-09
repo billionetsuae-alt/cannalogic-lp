@@ -23,7 +23,7 @@ const Offer = () => {
       <SacredGeometryBg />
 
       {/* Header */}
-      <motion.header 
+      <motion.header
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -78,22 +78,16 @@ const Offer = () => {
               className="relative order-2 md:order-1"
             >
               <div className="aspect-square bg-secondary rounded-3xl border border-border flex items-center justify-center p-8 md:p-12">
-                <motion.div 
+                <motion.div
                   animate={{ y: [-5, 5, -5] }}
                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  className="relative"
+                  className="relative w-48 md:w-64"
                 >
-                  {/* Bottle */}
-                  <div className="relative w-36 h-52 md:w-44 md:h-64 bg-gradient-to-b from-primary via-primary to-jungle-medium rounded-3xl flex items-center justify-center shadow-xl">
-                    <div className="text-center px-4">
-                      <span className="font-serif text-xl md:text-2xl text-primary-foreground font-semibold">
-                        ELEVATE
-                      </span>
-                      <div className="mt-2 text-xs text-primary-foreground/80">
-                        Full Spectrum Extract
-                      </div>
-                    </div>
-                  </div>
+                  <img
+                    src="/elevate product image.png"
+                    alt="Elevate Premium Bottle"
+                    className="w-full h-auto object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-500"
+                  />
                 </motion.div>
               </div>
             </motion.div>
@@ -196,12 +190,14 @@ const Offer = () => {
                     key={i}
                     animate={{ y: i === 2 ? [-3, 3, -3] : [3, -3, 3] }}
                     transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: i * 0.2 }}
-                    className="w-14 h-20 md:w-16 md:h-24 bg-gradient-to-b from-primary to-jungle-medium rounded-xl border-2 border-background flex items-center justify-center shadow-lg"
-                    style={{ transform: `rotate(${(i - 2) * 6}deg)` }}
+                    className="w-20 md:w-24 relative"
+                    style={{ transform: `rotate(${(i - 2) * 6}deg)`, zIndex: i }}
                   >
-                    <span className="font-serif text-[10px] md:text-xs text-primary-foreground">
-                      ELEVATE
-                    </span>
+                    <img
+                      src="/elevate product image.png"
+                      alt="Elevate Premium Bottle"
+                      className="w-full h-auto object-contain drop-shadow-xl"
+                    />
                   </motion.div>
                 ))}
               </div>
