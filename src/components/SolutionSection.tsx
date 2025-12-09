@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Brain, Heart, Moon, Sparkles } from "lucide-react";
+import { Brain, Leaf, Moon, Scroll } from "lucide-react";
 
 const features = [
   {
@@ -8,7 +8,7 @@ const features = [
     description: "Your body's master regulator for balance and homeostasis.",
   },
   {
-    icon: Heart,
+    icon: Leaf,
     title: "Natural Harmony",
     description: "Reconnect your mind and body through nature's own pathways.",
   },
@@ -18,7 +18,7 @@ const features = [
     description: "Support your body's natural rest and recovery cycles.",
   },
   {
-    icon: Sparkles,
+    icon: Scroll,
     title: "Ancient Wisdom",
     description: "Backed by centuries of traditional use and modern science.",
   },
@@ -54,7 +54,7 @@ export const SolutionSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12 md:mb-16"
         >
-          <motion.div 
+          <motion.div
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
             viewport={{ once: true }}
@@ -65,12 +65,12 @@ export const SolutionSection = () => {
             The Science of <span className="text-primary">Homeostasis</span>
           </h2>
           <p className="text-muted-foreground text-base md:text-lg max-w-xl mx-auto">
-            Your body possesses an innate intelligence designed to maintain balance. 
+            Your body possesses an innate intelligence designed to maintain balance.
             We're here to help you unlock it.
           </p>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"

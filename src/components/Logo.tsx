@@ -8,9 +8,7 @@ export const Logo = () => {
       transition={{ duration: 0.5 }}
       className="flex items-center gap-2"
     >
-      <span className="font-serif text-2xl md:text-3xl font-semibold text-primary tracking-wide">
-        CannaLogic
-      </span>
+      <img src="/Cannalogic-Colored-Vertical.svg" alt="CannaLogic" className="h-12 w-auto" />
     </motion.div>
   );
 };
