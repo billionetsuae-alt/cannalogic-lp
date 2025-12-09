@@ -2,27 +2,34 @@ import { motion } from "framer-motion";
 import { Shield, Leaf, Scale } from "lucide-react";
 
 const badges = [
-  { icon: Shield, label: "Ayush Approved", delay: 0 },
-  { icon: Leaf, label: "Non-Psychoactive", delay: 0.1 },
-  { icon: Scale, label: "100% Legal", delay: 0.2 },
+  { icon: Shield, label: "Ayush Approved" },
+  { icon: Leaf, label: "Non-Psychoactive" },
+  { icon: Scale, label: "100% Legal" },
 ];
 
 export const TrustBadges = () => {
   return (
-    <div className="flex flex-wrap justify-center gap-4 md:gap-6">
+    <motion.div 
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.5 }}
+      className="flex flex-wrap justify-center gap-3 md:gap-4"
+    >
       {badges.map((badge, index) => (
         <motion.div
           key={badge.label}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: badge.delay }}
+          transition={{ duration: 0.4, delay: index * 0.1 }}
+          whileHover={{ scale: 1.02 }}
           className="trust-badge"
         >
-          <badge.icon className="w-5 h-5 text-accent" />
-          <span className="text-sm font-medium text-foreground/80">{badge.label}</span>
+          <badge.icon className="w-4 h-4 md:w-5 md:h-5 text-primary" />
+          <span className="text-sm font-medium text-foreground">{badge.label}</span>
         </motion.div>
       ))}
-    </div>
+    </motion.div>
   );
 };

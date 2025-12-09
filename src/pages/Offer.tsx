@@ -19,22 +19,27 @@ const guarantees = [
 
 const Offer = () => {
   return (
-    <main className="min-h-screen bg-background relative">
+    <main className="min-h-screen bg-background relative overflow-x-hidden">
       <SacredGeometryBg />
 
       {/* Header */}
-      <header className="relative z-10 flex items-center justify-center py-6 px-4 border-b border-border/30">
+      <motion.header 
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="relative z-10 flex items-center justify-center py-5 px-4 border-b border-border"
+      >
         <Logo />
-      </header>
+      </motion.header>
 
       {/* Approved Section */}
-      <section className="relative z-10 py-16 px-4">
-        <div className="max-w-2xl mx-auto text-center">
+      <section className="relative z-10 py-12 md:py-16 px-4">
+        <div className="max-w-xl mx-auto text-center">
           {/* Approved Stamp */}
           <motion.div
-            initial={{ scale: 2, opacity: 0, rotate: -10 }}
+            initial={{ scale: 1.5, opacity: 0, rotate: -8 }}
             animate={{ scale: 1, opacity: 1, rotate: -3 }}
-            transition={{ duration: 0.5, type: "spring", stiffness: 200 }}
+            transition={{ duration: 0.4, type: "spring", stiffness: 200, damping: 15 }}
             className="approved-stamp inline-block mb-8"
           >
             APPROVED
@@ -43,18 +48,18 @@ const Offer = () => {
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.6 }}
-            className="font-serif text-3xl md:text-4xl text-foreground mb-4"
+            transition={{ delay: 0.2, duration: 0.5 }}
+            className="font-serif text-2xl sm:text-3xl md:text-4xl text-foreground mb-4"
           >
             Your physiology is a match for the{" "}
-            <span className="text-accent">Elevate Protocol</span>
+            <span className="text-primary">Elevate Protocol</span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.5, duration: 0.6 }}
-            className="text-muted-foreground text-lg"
+            transition={{ delay: 0.3, duration: 0.5 }}
+            className="text-muted-foreground text-base md:text-lg"
           >
             Based on your assessment, you qualify for our premium formulation.
           </motion.p>
@@ -62,47 +67,49 @@ const Offer = () => {
       </section>
 
       {/* Product Section */}
-      <section className="relative z-10 py-12 px-4">
-        <div className="max-w-5xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+      <section className="relative z-10 py-10 md:py-16 px-4">
+        <div className="max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
             {/* Product Image */}
             <motion.div
-              initial={{ opacity: 0, x: -40 }}
+              initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.4, duration: 0.8 }}
-              className="relative"
+              transition={{ delay: 0.3, duration: 0.6 }}
+              className="relative order-2 md:order-1"
             >
-              <div className="aspect-square bg-gradient-to-br from-card to-secondary/30 rounded-3xl border border-border flex items-center justify-center p-12">
-                <div className="relative">
-                  {/* Glow Effect */}
-                  <div className="absolute inset-0 blur-3xl opacity-30 bg-primary rounded-full" />
-                  {/* Bottle Placeholder */}
-                  <div className="relative w-48 h-72 bg-gradient-to-b from-primary via-primary to-jungle rounded-3xl flex items-center justify-center shadow-2xl">
+              <div className="aspect-square bg-secondary rounded-3xl border border-border flex items-center justify-center p-8 md:p-12">
+                <motion.div 
+                  animate={{ y: [-5, 5, -5] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                  className="relative"
+                >
+                  {/* Bottle */}
+                  <div className="relative w-36 h-52 md:w-44 md:h-64 bg-gradient-to-b from-primary via-primary to-jungle-medium rounded-3xl flex items-center justify-center shadow-xl">
                     <div className="text-center px-4">
-                      <span className="font-serif text-2xl text-primary-foreground font-semibold">
+                      <span className="font-serif text-xl md:text-2xl text-primary-foreground font-semibold">
                         ELEVATE
                       </span>
-                      <div className="mt-2 text-xs text-primary-foreground/70">
+                      <div className="mt-2 text-xs text-primary-foreground/80">
                         Full Spectrum Extract
                       </div>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               </div>
             </motion.div>
 
             {/* Product Details */}
             <motion.div
-              initial={{ opacity: 0, x: 40 }}
+              initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.5, duration: 0.8 }}
-              className="space-y-8"
+              transition={{ delay: 0.4, duration: 0.6 }}
+              className="space-y-6 order-1 md:order-2"
             >
               <div>
-                <h2 className="font-serif text-3xl md:text-4xl text-foreground mb-2">
+                <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-foreground mb-2">
                   Elevate Premium
                 </h2>
-                <p className="text-muted-foreground">
+                <p className="text-muted-foreground text-sm md:text-base">
                   The complete protocol for mental clarity and inner peace.
                 </p>
               </div>
@@ -114,11 +121,11 @@ const Offer = () => {
                     key={feature}
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.6 + index * 0.1, duration: 0.4 }}
-                    className="flex items-center gap-3 text-foreground"
+                    transition={{ delay: 0.5 + index * 0.08, duration: 0.4 }}
+                    className="flex items-center gap-3 text-foreground text-sm md:text-base"
                   >
-                    <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center">
-                      <Check className="w-4 h-4 text-primary" />
+                    <div className="w-5 h-5 md:w-6 md:h-6 rounded-full bg-jungle-light flex items-center justify-center flex-shrink-0">
+                      <Check className="w-3 h-3 md:w-4 md:h-4 text-primary" />
                     </div>
                     {feature}
                   </motion.li>
@@ -127,14 +134,14 @@ const Offer = () => {
 
               {/* Price */}
               <div className="pt-4 border-t border-border">
-                <div className="flex items-baseline gap-3">
-                  <span className="text-4xl font-serif font-bold text-accent">
+                <div className="flex items-baseline gap-3 flex-wrap">
+                  <span className="text-3xl md:text-4xl font-serif font-bold text-primary">
                     ₹2,999
                   </span>
                   <span className="text-lg text-muted-foreground line-through">
                     ₹4,999
                   </span>
-                  <span className="text-sm text-primary font-medium">
+                  <span className="text-sm text-primary font-medium bg-jungle-light px-2 py-1 rounded">
                     Save 40%
                   </span>
                 </div>
@@ -142,21 +149,21 @@ const Offer = () => {
 
               {/* CTA Button */}
               <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="w-full btn-gold py-5 px-8 rounded-xl text-lg font-semibold animate-pulse-glow"
+                whileHover={{ scale: 1.01, y: -2 }}
+                whileTap={{ scale: 0.99 }}
+                className="w-full btn-primary py-4 px-8 rounded-xl text-base md:text-lg font-semibold green-glow"
               >
                 SECURE MY SUPPLY
               </motion.button>
 
               {/* Guarantees */}
-              <div className="flex flex-wrap gap-4 pt-4">
+              <div className="flex flex-wrap gap-4 pt-2">
                 {guarantees.map((item) => (
                   <div
                     key={item.text}
-                    className="flex items-center gap-2 text-sm text-muted-foreground"
+                    className="flex items-center gap-2 text-xs md:text-sm text-muted-foreground"
                   >
-                    <item.icon className="w-4 h-4 text-accent" />
+                    <item.icon className="w-4 h-4 text-primary flex-shrink-0" />
                     <span>{item.text}</span>
                   </div>
                 ))}
@@ -167,52 +174,54 @@ const Offer = () => {
       </section>
 
       {/* Bundle Option */}
-      <section className="relative z-10 py-16 px-4">
-        <div className="max-w-3xl mx-auto">
+      <section className="relative z-10 py-12 md:py-16 px-4">
+        <div className="max-w-2xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="relative p-8 bg-card border-2 border-accent/50 rounded-3xl overflow-hidden"
+            transition={{ duration: 0.5 }}
+            className="relative p-6 md:p-8 bg-card border-2 border-primary/30 rounded-2xl overflow-hidden"
           >
             {/* Best Value Tag */}
-            <div className="absolute top-0 right-0 bg-accent text-accent-foreground px-4 py-1 text-sm font-semibold rounded-bl-xl">
+            <div className="absolute top-0 right-0 bg-primary text-primary-foreground px-4 py-1.5 text-xs md:text-sm font-semibold rounded-bl-xl">
               BEST VALUE
             </div>
 
-            <div className="flex flex-col md:flex-row items-center gap-8">
+            <div className="flex flex-col md:flex-row items-center gap-6 md:gap-8">
               {/* Bundle Visual */}
-              <div className="flex -space-x-6">
+              <div className="flex -space-x-4">
                 {[1, 2, 3].map((i) => (
-                  <div
+                  <motion.div
                     key={i}
-                    className="w-20 h-28 bg-gradient-to-b from-primary to-jungle rounded-2xl border-2 border-card flex items-center justify-center shadow-lg"
-                    style={{ transform: `rotate(${(i - 2) * 8}deg)` }}
+                    animate={{ y: i === 2 ? [-3, 3, -3] : [3, -3, 3] }}
+                    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: i * 0.2 }}
+                    className="w-14 h-20 md:w-16 md:h-24 bg-gradient-to-b from-primary to-jungle-medium rounded-xl border-2 border-background flex items-center justify-center shadow-lg"
+                    style={{ transform: `rotate(${(i - 2) * 6}deg)` }}
                   >
-                    <span className="font-serif text-xs text-primary-foreground">
+                    <span className="font-serif text-[10px] md:text-xs text-primary-foreground">
                       ELEVATE
                     </span>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
 
               {/* Bundle Details */}
               <div className="flex-1 text-center md:text-left">
-                <h3 className="font-serif text-2xl text-foreground mb-2">
+                <h3 className="font-serif text-xl md:text-2xl text-foreground mb-2">
                   3-Month Protocol Bundle
                 </h3>
-                <p className="text-muted-foreground mb-4">
+                <p className="text-muted-foreground text-sm mb-4">
                   Complete transformation package with maximum results.
                 </p>
-                <div className="flex items-baseline gap-3 justify-center md:justify-start">
-                  <span className="text-3xl font-serif font-bold text-accent">
+                <div className="flex items-baseline gap-3 justify-center md:justify-start flex-wrap">
+                  <span className="text-2xl md:text-3xl font-serif font-bold text-primary">
                     ₹6,999
                   </span>
-                  <span className="text-lg text-muted-foreground line-through">
+                  <span className="text-base text-muted-foreground line-through">
                     ₹14,997
                   </span>
-                  <span className="text-sm text-primary font-medium">
+                  <span className="text-xs text-primary font-medium bg-jungle-light px-2 py-1 rounded">
                     Save 53%
                   </span>
                 </div>
@@ -222,7 +231,7 @@ const Offer = () => {
               <motion.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="btn-gold py-4 px-8 rounded-xl font-semibold whitespace-nowrap"
+                className="btn-outline py-3 px-6 rounded-xl font-semibold text-sm md:text-base whitespace-nowrap"
               >
                 GET THE BUNDLE
               </motion.button>
@@ -232,7 +241,7 @@ const Offer = () => {
       </section>
 
       {/* Footer */}
-      <footer className="relative z-10 py-8 px-4 border-t border-border/30">
+      <footer className="relative z-10 py-8 px-4 border-t border-border bg-background">
         <div className="max-w-4xl mx-auto text-center text-sm text-muted-foreground">
           <p>© 2024 CannaLogic. All rights reserved.</p>
           <p className="mt-2 text-xs">

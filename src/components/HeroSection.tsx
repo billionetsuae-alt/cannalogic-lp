@@ -7,42 +7,58 @@ interface HeroSectionProps {
 
 export const HeroSection = ({ onCTAClick }: HeroSectionProps) => {
   return (
-    <section className="relative py-12 md:py-20 px-4">
-      <div className="max-w-4xl mx-auto text-center">
+    <section className="relative py-12 md:py-20 lg:py-24 px-4">
+      <div className="max-w-3xl mx-auto text-center">
+        {/* Badge */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-jungle-light text-primary text-sm font-medium mb-6"
+        >
+          <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+          100% Natural & Ayush Approved
+        </motion.div>
+
         {/* Headline */}
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="font-serif text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground leading-tight mb-6"
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground leading-tight mb-5"
         >
-          THE ANCIENT SECRET TO{" "}
-          <span className="text-accent">RECLAIMING YOUR MIND</span>
+          The Ancient Secret to{" "}
+          <span className="text-primary">Reclaiming Your Mind</span>
         </motion.h1>
 
         {/* Subheadline */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10"
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="text-base md:text-lg lg:text-xl text-muted-foreground max-w-xl mx-auto mb-8"
         >
-          Discover the 100% Natural, Ayush-Approved path to silencing the noise.
+          Discover the path to silencing the noise and finding inner peace, 
+          naturally and legally.
         </motion.p>
 
         {/* Desktop CTA */}
-        <motion.button
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-          onClick={onCTAClick}
-          className="hidden md:inline-flex btn-gold py-4 px-10 rounded-lg text-lg items-center gap-3 animate-pulse-glow"
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="hidden md:block"
         >
-          <span>START MY ASSESSMENT</span>
-          <ArrowRight className="w-5 h-5" />
-        </motion.button>
+          <motion.button
+            whileHover={{ scale: 1.02, y: -2 }}
+            whileTap={{ scale: 0.98 }}
+            onClick={onCTAClick}
+            className="btn-primary py-4 px-10 rounded-xl text-lg inline-flex items-center gap-3 green-glow"
+          >
+            <span>START MY ASSESSMENT</span>
+            <ArrowRight className="w-5 h-5" />
+          </motion.button>
+        </motion.div>
       </div>
     </section>
   );

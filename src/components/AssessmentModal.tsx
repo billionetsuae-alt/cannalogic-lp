@@ -38,25 +38,30 @@ export const AssessmentModal = ({ isOpen, onClose }: AssessmentModalProps) => {
   const [formData, setFormData] = useState({ name: "", email: "", phone: "" });
   const [isAnalyzing, setIsAnalyzing] = useState(false);
 
-  const totalSteps = questions.length + 1; // questions + lead form
+  const totalSteps = questions.length + 1;
   const progress = ((currentStep + 1) / totalSteps) * 100;
 
   const handleAnswer = (answer: string) => {
     setAnswers((prev) => ({ ...prev, [currentStep]: answer }));
     setTimeout(() => {
       setCurrentStep((prev) => prev + 1);
-    }, 300);
+    }, 200);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsAnalyzing(true);
-    
-    // Simulate analysis
-    await new Promise((resolve) => setTimeout(resolve, 3000));
-    
+    await new Promise((resolve) => setTimeout(resolve, 2500));
     onClose();
     navigate("/offer");
+  };
+
+  const resetAndClose = () => {
+    setCurrentStep(0);
+    setAnswers({});
+    setFormData({ name: "", email: "", phone: "" });
+    setIsAnalyzing(false);
+    onClose();
   };
 
   const isLeadForm = currentStep >= questions.length;
@@ -69,70 +74,74 @@ export const AssessmentModal = ({ isOpen, onClose }: AssessmentModalProps) => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="fixed inset-0 z-50 flex items-center justify-center"
+        className="fixed inset-0 z-50 flex items-center justify-center p-4"
       >
         {/* Backdrop */}
-        <div 
-          className="absolute inset-0 bg-background/95 backdrop-blur-sm"
-          onClick={onClose}
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="absolute inset-0 bg-foreground/20 backdrop-blur-sm"
+          onClick={resetAndClose}
         />
 
         {/* Modal */}
         <motion.div
-          initial={{ scale: 0.9, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          exit={{ scale: 0.9, opacity: 0 }}
-          className="relative z-10 w-full max-w-lg mx-4 bg-card border border-border rounded-2xl overflow-hidden"
+          initial={{ scale: 0.95, opacity: 0, y: 20 }}
+          animate={{ scale: 1, opacity: 1, y: 0 }}
+          exit={{ scale: 0.95, opacity: 0, y: 20 }}
+          transition={{ type: "spring", damping: 25, stiffness: 300 }}
+          className="relative z-10 w-full max-w-lg bg-background border border-border rounded-2xl overflow-hidden shadow-xl"
         >
           {/* Header */}
-          <div className="flex items-center justify-between p-6 border-b border-border">
+          <div className="flex items-center justify-between p-5 border-b border-border">
             <span className="text-sm text-muted-foreground">
               Step {currentStep + 1} of {totalSteps}
             </span>
             <button
-              onClick={onClose}
-              className="p-2 rounded-full hover:bg-muted transition-colors"
+              onClick={resetAndClose}
+              className="p-2 rounded-full hover:bg-secondary transition-colors"
             >
               <X className="w-5 h-5 text-muted-foreground" />
             </button>
           </div>
 
           {/* Progress Bar */}
-          <div className="progress-bar mx-6 mt-4">
+          <div className="progress-bar mx-5 mt-4">
             <motion.div
               className="progress-bar-fill"
               initial={{ width: 0 }}
               animate={{ width: `${progress}%` }}
-              transition={{ duration: 0.5, ease: "easeOut" }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
             />
           </div>
 
           {/* Content */}
-          <div className="p-6 min-h-[400px] flex flex-col">
+          <div className="p-5 md:p-6 min-h-[380px] flex flex-col">
             <AnimatePresence mode="wait">
               {!isLeadForm ? (
                 <motion.div
                   key={currentStep}
-                  initial={{ opacity: 0, x: 50 }}
+                  initial={{ opacity: 0, x: 30 }}
                   animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -50 }}
-                  transition={{ duration: 0.3 }}
+                  exit={{ opacity: 0, x: -30 }}
+                  transition={{ duration: 0.25 }}
                   className="flex-1"
                 >
-                  <h2 className="font-serif text-2xl md:text-3xl text-foreground mb-8">
+                  <h2 className="font-serif text-xl md:text-2xl text-foreground mb-6">
                     {questions[currentStep].question}
                   </h2>
                   <div className="space-y-3">
                     {questions[currentStep].options.map((option) => (
                       <motion.button
                         key={option}
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
+                        whileHover={{ scale: 1.01 }}
+                        whileTap={{ scale: 0.99 }}
                         onClick={() => handleAnswer(option)}
                         className={`w-full p-4 text-left rounded-xl border transition-all duration-200 ${
                           answers[currentStep] === option
-                            ? "border-primary bg-primary/10 text-foreground"
-                            : "border-border hover:border-accent/50 hover:bg-muted/50 text-foreground/80"
+                            ? "border-primary bg-jungle-light text-foreground"
+                            : "border-border hover:border-primary/30 hover:bg-secondary text-foreground"
                         }`}
                       >
                         {option}
@@ -143,75 +152,71 @@ export const AssessmentModal = ({ isOpen, onClose }: AssessmentModalProps) => {
               ) : (
                 <motion.div
                   key="lead-form"
-                  initial={{ opacity: 0, x: 50 }}
+                  initial={{ opacity: 0, x: 30 }}
                   animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -50 }}
-                  transition={{ duration: 0.3 }}
+                  exit={{ opacity: 0, x: -30 }}
+                  transition={{ duration: 0.25 }}
                   className="flex-1"
                 >
                   {!isAnalyzing ? (
                     <>
                       <div className="text-center mb-6">
-                        <p className="text-accent text-sm font-medium mb-2">
-                          Analyzing your profile...
+                        <p className="text-primary text-sm font-medium mb-2">
+                          Almost there...
                         </p>
-                        <h2 className="font-serif text-2xl md:text-3xl text-foreground">
-                          To finalize eligibility, enter your details
+                        <h2 className="font-serif text-xl md:text-2xl text-foreground">
+                          Enter your details to check eligibility
                         </h2>
                       </div>
                       <form onSubmit={handleSubmit} className="space-y-4">
-                        <div>
-                          <input
-                            type="text"
-                            placeholder="Full Name"
-                            required
-                            value={formData.name}
-                            onChange={(e) => setFormData((prev) => ({ ...prev, name: e.target.value }))}
-                            className="w-full p-4 bg-muted border border-border rounded-xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent/50"
-                          />
-                        </div>
-                        <div>
-                          <input
-                            type="email"
-                            placeholder="Email Address"
-                            required
-                            value={formData.email}
-                            onChange={(e) => setFormData((prev) => ({ ...prev, email: e.target.value }))}
-                            className="w-full p-4 bg-muted border border-border rounded-xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent/50"
-                          />
-                        </div>
-                        <div>
-                          <input
-                            type="tel"
-                            placeholder="Phone Number"
-                            required
-                            value={formData.phone}
-                            onChange={(e) => setFormData((prev) => ({ ...prev, phone: e.target.value }))}
-                            className="w-full p-4 bg-muted border border-border rounded-xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent/50"
-                          />
-                        </div>
-                        <button
+                        <input
+                          type="text"
+                          placeholder="Full Name"
+                          required
+                          value={formData.name}
+                          onChange={(e) => setFormData((prev) => ({ ...prev, name: e.target.value }))}
+                          className="w-full p-4 bg-secondary border border-border rounded-xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
+                        />
+                        <input
+                          type="email"
+                          placeholder="Email Address"
+                          required
+                          value={formData.email}
+                          onChange={(e) => setFormData((prev) => ({ ...prev, email: e.target.value }))}
+                          className="w-full p-4 bg-secondary border border-border rounded-xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
+                        />
+                        <input
+                          type="tel"
+                          placeholder="Phone Number"
+                          required
+                          value={formData.phone}
+                          onChange={(e) => setFormData((prev) => ({ ...prev, phone: e.target.value }))}
+                          className="w-full p-4 bg-secondary border border-border rounded-xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all"
+                        />
+                        <motion.button
                           type="submit"
-                          className="w-full btn-gold py-4 px-8 rounded-xl text-lg flex items-center justify-center gap-3 mt-6"
+                          whileHover={{ scale: 1.01 }}
+                          whileTap={{ scale: 0.99 }}
+                          className="w-full btn-primary py-4 px-8 rounded-xl text-base flex items-center justify-center gap-2 mt-6"
                         >
                           <span>Check Eligibility</span>
                           <ArrowRight className="w-5 h-5" />
-                        </button>
+                        </motion.button>
                       </form>
                     </>
                   ) : (
-                    <div className="flex-1 flex flex-col items-center justify-center">
+                    <div className="flex-1 flex flex-col items-center justify-center py-10">
                       <motion.div
                         animate={{ rotate: 360 }}
-                        transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
+                        transition={{ duration: 1.2, repeat: Infinity, ease: "linear" }}
                       >
-                        <Loader2 className="w-12 h-12 text-accent" />
+                        <Loader2 className="w-10 h-10 text-primary" />
                       </motion.div>
-                      <p className="mt-6 font-serif text-xl text-foreground">
+                      <p className="mt-5 font-serif text-lg text-foreground">
                         Analyzing your profile...
                       </p>
                       <p className="mt-2 text-sm text-muted-foreground">
-                        Please wait while we evaluate your eligibility
+                        Please wait a moment
                       </p>
                     </div>
                   )}
