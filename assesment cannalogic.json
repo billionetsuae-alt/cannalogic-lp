@@ -1,0 +1,152 @@
+{
+  "name": "assesment cannalogic",
+  "nodes": [
+    {
+      "parameters": {
+        "dataTableId": {
+          "__rl": true,
+          "value": "IXij94xjGYvBoRm4",
+          "mode": "list",
+          "cachedResultName": "cannalogic lp test db",
+          "cachedResultUrl": "/projects/lSOiVmjXWdFmnpZh/datatables/IXij94xjGYvBoRm4"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Phone_Number": "={{ $json.phoneNumber }}",
+            "Full_Name": "={{ $json.fullName }}",
+            "Email": "={{ $json.email }}",
+            "Age": "={{ $json.age }}",
+            "Weight": "={{ $json.weight }}",
+            "Lifestyle_Issues": "={{ $json.lifestyleIssues }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Full_Name",
+              "displayName": "Full_Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Phone_Number",
+              "displayName": "Phone_Number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Age",
+              "displayName": "Age",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Weight",
+              "displayName": "Weight",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Lifestyle_Issues",
+              "displayName": "Lifestyle_Issues",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.dataTable",
+      "typeVersion": 1,
+      "position": [
+        -208,
+        -48
+      ],
+      "id": "95399273-a572-4870-bbed-06237ba733d2",
+      "name": "Insert row"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "assesment-data",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -416,
+        -48
+      ],
+      "id": "ad444d4f-c08b-4ece-b052-2a1ce4aa471d",
+      "name": "Webhook",
+      "webhookId": "def9cc43-0892-4e5d-9d99-35151e3ac701"
+    }
+  ],
+  "pinData": {
+    "Webhook": [
+      {
+        "json": {
+          "fullName": "Amjad",
+          "email": "amjad@example.com",
+          "phoneNumber": "9061540651"
+        }
+      }
+    ]
+  },
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Insert row",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "38eaabae-6df1-41ba-9640-55fd0fb08be9",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "9f58de6173fc8cd9829e18435a23c767f0cc40edbb439467a307bf20f894675b"
+  },
+  "id": "vXd1HGpyNS5KExGv",
+  "tags": []
+}

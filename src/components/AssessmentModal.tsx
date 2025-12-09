@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ArrowRight, Loader2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 
 interface AssessmentModalProps {
   isOpen: boolean;
@@ -29,6 +30,21 @@ const questions = [
     question: "Have you tried other solutions that failed?",
     options: ["Yes, many times", "A few attempts", "Not really", "This is my first step"],
   },
+  {
+    id: 4,
+    question: "What is your age range?",
+    options: ["18-25", "26-35", "36-50", "50+"],
+  },
+  {
+    id: 5,
+    question: "What is your weight range?",
+    options: ["<60kg", "60-80kg", "80-100kg", ">100kg"],
+  },
+  {
+    id: 6,
+    question: "Do you have any specific lifestyle issues?",
+    options: ["High Stress", "Poor Sleep", "Sedentary Lifestyle", "Dietary Issues", "None"],
+  },
 ];
 
 export const AssessmentModal = ({ isOpen, onClose }: AssessmentModalProps) => {
@@ -51,9 +67,42 @@ export const AssessmentModal = ({ isOpen, onClose }: AssessmentModalProps) => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsAnalyzing(true);
-    await new Promise((resolve) => setTimeout(resolve, 2500));
-    onClose();
-    navigate("/offer");
+
+    const payload = {
+      fullName: formData.name,
+      email: formData.email,
+      phoneNumber: formData.phone,
+      goal: answers[0],
+      duration: answers[1],
+      previousAttempts: answers[2],
+      age: answers[3],
+      weight: answers[4],
+      lifestyleIssues: answers[5],
+    };
+
+    try {
+      const response = await fetch("https://n8n-642200223.kloudbeansite.com/webhook-test/assesment-data", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (response.ok) {
+        // Wait a bit to show the "Analyzing" state for UX
+        await new Promise((resolve) => setTimeout(resolve, 2000));
+        onClose();
+        navigate("/offer");
+        toast.success("Assessment submitted successfully!");
+      } else {
+        throw new Error("Failed to submit assessment");
+      }
+    } catch (error) {
+      console.error("Submission error:", error);
+      toast.error("Something went wrong. Please try again.");
+      setIsAnalyzing(false);
+    }
   };
 
   const resetAndClose = () => {
@@ -77,7 +126,7 @@ export const AssessmentModal = ({ isOpen, onClose }: AssessmentModalProps) => {
         className="fixed inset-0 z-50 flex items-center justify-center p-4"
       >
         {/* Backdrop */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -138,11 +187,10 @@ export const AssessmentModal = ({ isOpen, onClose }: AssessmentModalProps) => {
                         whileHover={{ scale: 1.01 }}
                         whileTap={{ scale: 0.99 }}
                         onClick={() => handleAnswer(option)}
-                        className={`w-full p-4 text-left rounded-xl border transition-all duration-200 ${
-                          answers[currentStep] === option
+                        className={`w-full p-4 text-left rounded-xl border transition-all duration-200 ${answers[currentStep] === option
                             ? "border-primary bg-jungle-light text-foreground"
                             : "border-border hover:border-primary/30 hover:bg-secondary text-foreground"
-                        }`}
+                          }`}
                       >
                         {option}
                       </motion.button>
