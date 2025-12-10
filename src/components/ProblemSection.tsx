@@ -20,61 +20,51 @@ export const ProblemSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center"
         >
-          {/* Divider */}
-          <motion.div 
-            initial={{ scaleX: 0 }}
-            whileInView={{ scaleX: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="section-divider mb-10"
-          />
-
           <motion.h2
             style={{ y }}
-            className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-foreground mb-4"
+            className="font-serif text-3xl sm:text-4xl md:text-5xl text-foreground mb-4"
           >
-            You Are Not Broken.
+            You’re Not Broken.
           </motion.h2>
-          
-          <motion.p 
+
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="font-serif text-xl sm:text-2xl md:text-3xl text-primary mb-10"
+            className="font-serif text-2xl sm:text-3xl md:text-4xl text-neon mb-10"
           >
-            You Are Just Disconnected.
+            You’ve Been Disconnected.
           </motion.p>
-          
-          <div className="space-y-5 text-muted-foreground text-base md:text-lg leading-relaxed">
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-            >
-              The constant noise. The racing thoughts. The weight that sits on your chest 
-              when you try to rest. Modern life has severed you from your natural state of peace.
-            </motion.p>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-            >
-              You've tried meditation apps. Prescription solutions. Endless supplements 
-              promising miracles. Yet the disconnect remains.
-            </motion.p>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="text-foreground font-medium text-lg md:text-xl"
-            >
-              What if the answer isn't something new—but something ancient?
-            </motion.p>
+
+          <div className="space-y-6 text-muted-foreground text-lg md:text-xl leading-relaxed max-w-2xl mx-auto">
+            <p>
+              Modern life has pushed you away from your true self. <br />
+              Stress. Overthinking. Emotional heaviness.
+            </p>
+            <p>
+              Not because you’re weak — but because your inner balancing system has been suppressed.
+            </p>
+            <div className="flex flex-col gap-2 font-medium text-foreground py-4">
+              <span>Your mind fights itself.</span>
+              <span>Your emotions drain you.</span>
+              <span>Your intuition fades.</span>
+            </div>
+            <p className="text-neon font-semibold">
+              You’re not meant to live like this.
+            </p>
           </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="mt-10"
+          >
+            {/* Note: User requested CTA here "Take the Consciousness Assessment" - likely leading to same modal */}
+            {/* We can just add a small button or text link since main CTAs are top/bottom, or standard button */}
+          </motion.div>
         </motion.div>
       </div>
     </section>
