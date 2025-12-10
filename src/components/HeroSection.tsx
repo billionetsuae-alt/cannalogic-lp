@@ -10,9 +10,9 @@ export const HeroSection = ({ onCTAClick }: HeroSectionProps) => {
     <section className="relative py-12 md:py-20 lg:py-24 px-4 overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background pointer-events-none" />
-      
+
       <div className="max-w-4xl mx-auto text-center relative z-10">
-        
+
         {/* Headline */}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
@@ -20,7 +20,7 @@ export const HeroSection = ({ onCTAClick }: HeroSectionProps) => {
           transition={{ duration: 0.6 }}
           className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-foreground leading-tight mb-6"
         >
-          The Ancient Medicine They <br className="hidden md:block"/> Tried to <span className="text-neon">Hide from You</span>
+          The Ancient Medicine They <br className="hidden md:block" /> Tried to <span className="text-neon">Hide from You</span>
         </motion.h1>
 
         {/* Sub-Headline */}
@@ -32,20 +32,24 @@ export const HeroSection = ({ onCTAClick }: HeroSectionProps) => {
         >
           Unlock Higher Consciousness, Emotional Balance & Inner Clarity — <span className="text-white font-medium">Naturally.</span>
         </motion.p>
-        
-        {/* VSL Placeholder */}
+
+        {/* VSL Video */}
         <motion.div
-           initial={{ opacity: 0, scale: 0.95 }}
-           animate={{ opacity: 1, scale: 1 }}
-           transition={{ duration: 0.6, delay: 0.3 }}
-           className="relative aspect-video max-w-3xl mx-auto bg-black rounded-2xl border-2 border-primary/20 shadow-[0_0_40px_rgba(74,222,128,0.1)] mb-10 overflow-hidden group hover:border-primary/40 transition-colors"
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="relative aspect-video max-w-3xl mx-auto bg-black rounded-2xl border-2 border-primary/20 shadow-[0_0_40px_rgba(74,222,128,0.1)] mb-10 overflow-hidden group hover:border-primary/40 transition-colors"
         >
-          <div className="absolute inset-0 flex flex-col items-center justify-center">
-             <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center backdrop-blur-sm group-hover:bg-primary/30 transition-colors">
-               <div className="w-0 h-0 border-t-[10px] border-t-transparent border-l-[20px] border-l-primary border-b-[10px] border-b-transparent ml-1" />
-             </div>
-             <p className="mt-4 text-sm text-muted-foreground font-mono">VSL: Talking Swami Avatar</p>
-          </div>
+          <video
+            src="https://res.cloudinary.com/djwx0b9nj/video/upload/v1765290145/VSL_Thampi_Nagarjuna_1_t4cg84.mp4"
+            controls
+            playsInline
+            controlsList="nodownload" // Optional: prevents download button in some browsers
+            className="w-full h-full object-cover"
+            poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='1080' viewBox='0 0 1920 1080'%3E%3Crect fill='%23111' width='1920' height='1080'/%3E%3Ctext x='960' y='540' text-anchor='middle' dominant-baseline='middle' fill='%234ade80' font-family='Georgia' font-size='48'%3EClick to Play%3C/text%3E%3C/svg%3E"
+          >
+            Your browser does not support the video tag.
+          </video>
         </motion.div>
 
         {/* Supporting Text */}
