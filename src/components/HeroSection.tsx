@@ -23,15 +23,22 @@ const wordVariants = {
     opacity: 1,
     y: 0,
     filter: "blur(0px)",
-    transition: { duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }
+    transition: { duration: 0.8 }
   }
-};
+} as const;
 
 export const HeroSection = ({ onCTAClick }: HeroSectionProps) => {
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center px-4 overflow-hidden">
       {/* Dramatic Background Gradients */}
       <div className="absolute inset-0 bg-gradient-to-br from-emerald-50 via-white to-green-50" />
+
+      {/* Hero Background Image */}
+      <div
+        className="absolute inset-0 opacity-60 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/hero-bg.png')" }}
+      />
+
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-emerald-100/40 via-transparent to-transparent" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-green-100/30 via-transparent to-transparent" />
 

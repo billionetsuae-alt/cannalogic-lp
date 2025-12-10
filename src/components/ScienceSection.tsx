@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { HumanBodyECS } from "./HumanBodyECS";
 
 export const ScienceSection = () => {
     return (
@@ -14,9 +13,13 @@ export const ScienceSection = () => {
                         transition={{ duration: 0.6 }}
                         className="order-2 md:order-1 relative"
                     >
-                        <div className="aspect-[4/5] rounded-3xl bg-secondary/30 border border-primary/20 relative overflow-hidden flex items-center justify-center p-8">
-                            {/* ECS Human Body Visual */}
-                            <HumanBodyECS />
+                        <div className="aspect-[4/5] rounded-3xl overflow-hidden relative group">
+                            <img
+                                src="/ecs-human-body.png"
+                                alt="Endocannabinoid System Visualization"
+                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-emerald-900/20 to-transparent pointer-events-none" />
                         </div>
                     </motion.div>
 

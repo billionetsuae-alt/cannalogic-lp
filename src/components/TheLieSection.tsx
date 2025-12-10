@@ -48,16 +48,13 @@ export const TheLieSection = ({ onCTAClick }: { onCTAClick: () => void }) => {
                         transition={{ duration: 0.6, delay: 0.2 }}
                         className="relative"
                     >
-                        <div className="aspect-square rounded-2xl bg-secondary/30 border border-primary/10 flex items-center justify-center relative overflow-hidden group">
-                            <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-20" />
-                            {/* Abstract ancient symbol or glitch effect text */}
-                            <div className="text-center p-8">
-                                <h3 className="text-6xl font-serif text-primary/20 group-hover:text-primary/40 transition-colors duration-500">TRUTH</h3>
-                                <div className="absolute inset-0 flex items-center justify-center">
-                                    <div className="w-32 h-1 bg-destructive rotate-45" />
-                                    <div className="w-32 h-1 bg-destructive -rotate-45" />
-                                </div>
-                            </div>
+                        <div className="aspect-square rounded-2xl overflow-hidden relative group">
+                            <img
+                                src="/truth-awakening.png"
+                                alt="Truth vs The Lie - Awakening Visual"
+                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
                         </div>
                         <div className="text-center mt-4">
                             <button onClick={onCTAClick} className="text-neon text-sm font-semibold hover:underline">
