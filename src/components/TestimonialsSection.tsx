@@ -43,10 +43,11 @@ export const TestimonialsSection = () => {
                     {testimonials.map((t, i) => (
                         <motion.div
                             key={i}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: i * 0.1, duration: 0.5 }}
+                            initial={{ opacity: 0, y: 40, scale: 0.95 }}
+                            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                            viewport={{ once: true, margin: "-50px" }}
+                            transition={{ delay: i * 0.15, duration: 0.6, ease: "easeOut" }}
+                            whileHover={{ y: -5, transition: { duration: 0.2 } }}
                             className="bg-card p-6 md:p-8 rounded-2xl border border-border hover:border-primary/30 transition-colors"
                         >
                             <div className="flex text-amber-500 mb-4 gap-1">
