@@ -27,7 +27,7 @@ const faqs = [
 
 export const FAQSection = () => {
     return (
-        <section className="py-20 px-4 bg-background">
+        <section className="py-20 px-4 bg-white/30 backdrop-blur-sm">
             <div className="max-w-3xl mx-auto">
                 <h2 className="font-serif text-3xl md:text-5xl text-foreground text-center mb-12">
                     Frequently Asked Questions

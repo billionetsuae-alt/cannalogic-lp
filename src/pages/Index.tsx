@@ -25,7 +25,7 @@ const Index = () => {
   const closeAssessment = () => setIsModalOpen(false);
 
   return (
-    <main className="min-h-screen bg-background relative overflow-x-hidden">
+    <main className="min-h-screen relative overflow-x-hidden bg-gradient-to-br from-emerald-50 via-white to-green-50">
       {/* Animated Leaf Background - Fixed Layer */}
       <LeafBackground />
 
@@ -45,7 +45,7 @@ const Index = () => {
       </div>
 
       {/* Trust Badges */}
-      <section className="relative z-10 py-8 px-4 border-b border-border/50 bg-background/50 backdrop-blur-sm">
+      <section className="relative z-10 py-8 px-4 border-b border-emerald-100 bg-white/30 backdrop-blur-sm">
         <TrustBadges />
       </section>
 
@@ -80,7 +80,7 @@ const Index = () => {
       </div>
 
       {/* Final CTA / Offer Section */}
-      <section className="relative z-10 py-16 md:py-24 px-4 bg-secondary/30">
+      <section className="relative z-10 py-16 md:py-24 px-4 bg-emerald-100/40">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

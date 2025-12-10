@@ -3,7 +3,7 @@ import { HumanBodyECS } from "./HumanBodyECS";
 
 export const ScienceSection = () => {
     return (
-        <section className="py-20 px-4 bg-secondary/20 relative overflow-hidden">
+        <section className="py-20 px-4 bg-emerald-100/30 relative overflow-hidden">
             <div className="max-w-4xl mx-auto text-center md:text-left">
                 <div className="grid md:grid-cols-2 gap-12 items-center">
                     {/* Visual */}

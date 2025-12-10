@@ -11,7 +11,7 @@ export const ProblemSection = () => {
   const y = useTransform(scrollYProgress, [0, 1], [50, -50]);
 
   return (
-    <section ref={sectionRef} className="py-16 md:py-24 lg:py-32 px-4 bg-secondary">
+    <section ref={sectionRef} className="py-16 md:py-24 lg:py-32 px-4 bg-emerald-50/50">
       <div className="max-w-3xl mx-auto">
         <motion.div
           initial={{ opacity: 0 }}

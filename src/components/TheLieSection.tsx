@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export const TheLieSection = ({ onCTAClick }: { onCTAClick: () => void }) => {
     return (
-        <section className="py-20 px-4 bg-background relative overflow-hidden">
+        <section className="py-20 px-4 bg-white/30 backdrop-blur-sm relative overflow-hidden">
             {/* Background decoration */}
             <div className="absolute top-0 right-0 w-96 h-96 bg-secondary/20 rounded-full blur-[100px] pointer-events-none" />
 

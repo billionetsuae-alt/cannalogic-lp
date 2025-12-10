@@ -3,7 +3,7 @@ import { CheckCircle2, ShieldCheck } from "lucide-react";
 
 export const LegalitySection = ({ onCTAClick }: { onCTAClick: () => void }) => {
     return (
-        <section className="py-20 px-4 bg-secondary/30">
+        <section className="py-20 px-4 bg-emerald-50/50">
             <div className="max-w-3xl mx-auto text-center">
                 <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
