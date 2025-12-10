@@ -33,11 +33,16 @@ export const HeroSection = ({ onCTAClick }: HeroSectionProps) => {
       {/* Dramatic Background Gradients */}
       <div className="absolute inset-0 bg-gradient-to-br from-emerald-50 via-white to-green-50" />
 
-      {/* Hero Background Image */}
-      <div
-        className="absolute inset-0 opacity-60 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/hero-bg.png')" }}
-      />
+      {/* Hero Background Video */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover opacity-60"
+      >
+        <source src="/hero-video.mp4" type="video/mp4" />
+      </video>
 
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-emerald-100/40 via-transparent to-transparent" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-green-100/30 via-transparent to-transparent" />
@@ -66,7 +71,7 @@ export const HeroSection = ({ onCTAClick }: HeroSectionProps) => {
       {/* Subtle Grid Pattern */}
       <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(to_right,#10b981_1px,transparent_1px),linear-gradient(to_bottom,#10b981_1px,transparent_1px)] bg-[size:4rem_4rem]" />
 
-      <div className="max-w-5xl mx-auto text-center relative z-10 py-12">
+      <div className="max-w-5xl mx-auto text-center relative z-10 py-6 md:py-12">
 
 
         {/* BIG Dramatic Headline - Unlock Higher Consciousness */}
@@ -125,7 +130,7 @@ export const HeroSection = ({ onCTAClick }: HeroSectionProps) => {
           <img
             src="/cannabis-leaf.png"
             alt="Sacred Cannabis Leaf"
-            className="w-48 h-48 md:w-64 md:h-64 mx-auto object-contain"
+            className="w-64 h-64 md:w-56 md:h-56 lg:w-64 lg:h-64 mx-auto object-contain"
           />
         </motion.div>
 
@@ -171,18 +176,13 @@ export const HeroSection = ({ onCTAClick }: HeroSectionProps) => {
           transition={{ duration: 0.5, delay: 1.4 }}
           className="relative inline-block"
         >
-          {/* Pulsing ring behind button */}
-          <motion.div
-            animate={{ scale: [1, 1.15, 1], opacity: [0.5, 0, 0.5] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="absolute inset-0 bg-emerald-400 rounded-full blur-md"
-          />
+
 
           <motion.button
             whileHover={{ scale: 1.05, boxShadow: "0 20px 60px rgba(16, 185, 129, 0.4)" }}
             whileTap={{ scale: 0.98 }}
             onClick={onCTAClick}
-            className="relative bg-emerald-600 hover:bg-emerald-700 text-white py-5 px-14 rounded-full text-xl font-bold inline-flex items-center gap-3 shadow-xl shadow-emerald-500/30 transition-all duration-300"
+            className="relative bg-emerald-600 hover:bg-emerald-700 text-white py-3 px-10 rounded-full text-lg font-bold inline-flex items-center gap-2 shadow-xl shadow-emerald-500/30 transition-all duration-300"
           >
             Take the Test
             <motion.span

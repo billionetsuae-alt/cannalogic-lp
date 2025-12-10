@@ -5,7 +5,7 @@ import { Logo } from "@/components/Logo";
 import { HeroSection } from "@/components/HeroSection";
 // import { VideoSection } from "@/components/VideoSection"; // Merged into Hero
 import { TrustBadges } from "@/components/TrustBadges";
-import { ProblemSection } from "@/components/ProblemSection";
+// import { ProblemSection } from "@/components/ProblemSection"; // Removed
 import { TheLieSection } from "@/components/TheLieSection";
 import { ScienceSection } from "@/components/ScienceSection";
 import { BenefitsSection } from "@/components/SolutionSection"; // Renamed inside file
@@ -39,10 +39,7 @@ const Index = () => {
         <TrustBadges />
       </section>
 
-      {/* Problem Section */}
-      <div className="relative z-10">
-        <ProblemSection />
-      </div>
+
 
       {/* The Lie Section */}
       <div className="relative z-10">
