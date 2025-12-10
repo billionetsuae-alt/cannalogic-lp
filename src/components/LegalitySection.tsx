@@ -14,7 +14,7 @@ export const LegalitySection = ({ onCTAClick }: { onCTAClick: () => void }) => {
                     <ShieldCheck className="w-12 h-12 text-neon" />
                 </motion.div>
 
-                <h2 className="font-serif text-3xl md:text-5xl text-foreground mb-4">
+                <h2 className="font-sans text-3xl md:text-5xl font-bold text-foreground mb-4">
                     100% Legal. 100% Safe. <br /> Ministry of AYUSH Approved.
                 </h2>
 

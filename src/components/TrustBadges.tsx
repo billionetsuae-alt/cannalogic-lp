@@ -28,7 +28,7 @@ export const TrustBadges = () => {
         transition={{ duration: 0.6, delay: 0.3 }}
         className="max-w-4xl text-center px-4"
       >
-        <p className="font-serif font-medium text-lg md:text-xl lg:text-2xl text-foreground italic leading-relaxed">
+        <p className="font-sans font-medium text-lg md:text-xl lg:text-2xl text-foreground italic leading-relaxed">
           "What if the key to holistic healing was hidden in a plant revered for centuries?<br />
           At Cannalogic, we decode the sacred science of natural herb to transform your wellness journey. Begin the connection today."
         </p>

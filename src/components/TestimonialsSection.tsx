@@ -34,7 +34,7 @@ export const TestimonialsSection = () => {
         <section className="py-20 px-4 bg-background border-t border-border">
             <div className="max-w-6xl mx-auto">
                 <div className="text-center mb-12">
-                    <h2 className="font-serif text-3xl md:text-5xl text-foreground mb-4">
+                    <h2 className="font-sans text-3xl md:text-5xl font-bold text-foreground mb-4">
                         What Seekers Are Saying
                     </h2>
                 </div>
@@ -56,7 +56,7 @@ export const TestimonialsSection = () => {
                             <p className="text-muted-foreground text-lg italic mb-6 leading-relaxed">
                                 "{t.quote}"
                             </p>
-                            <div className="font-serif text-foreground font-medium">
+                            <div className="font-sans text-foreground font-medium">
                                 — {t.name}, <span className="text-muted-foreground text-sm">{t.age}</span>
                             </div>
                         </motion.div>

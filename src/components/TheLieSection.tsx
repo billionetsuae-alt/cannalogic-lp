@@ -15,7 +15,7 @@ export const TheLieSection = ({ onCTAClick }: { onCTAClick: () => void }) => {
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
                     >
-                        <h2 className="font-serif text-3xl md:text-4xl leading-tight mb-6">
+                        <h2 className="font-sans text-3xl md:text-4xl font-bold leading-tight mb-6">
                             <span className="text-destructive">“C**nabis is Dangerous”</span>
                             <br />
                             <span className="text-foreground">— The Biggest Lie of Our Time</span>

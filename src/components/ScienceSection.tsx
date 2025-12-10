@@ -31,7 +31,7 @@ export const ScienceSection = () => {
                         transition={{ duration: 0.6, delay: 0.2 }}
                         className="order-1 md:order-2 space-y-6"
                     >
-                        <h2 className="font-serif text-3xl md:text-4xl text-foreground">
+                        <h2 className="font-sans text-3xl md:text-4xl font-bold text-foreground">
                             Your Body Was Designed to Work with This Plant
                         </h2>
                         <div className="text-muted-foreground text-lg space-y-4">

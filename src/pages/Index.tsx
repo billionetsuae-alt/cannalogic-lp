@@ -85,7 +85,7 @@ const Index = () => {
         >
           <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-neon-green to-transparent" />
 
-          <h2 className="font-serif text-3xl md:text-5xl text-foreground mb-6">
+          <h2 className="font-sans text-3xl md:text-5xl font-bold text-foreground mb-6">
             This Medicine Is Not for Everyone. <br />
             <span className="text-neon">Only the Ready Will Be Invited.</span>
           </h2>

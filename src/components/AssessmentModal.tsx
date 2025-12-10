@@ -177,7 +177,7 @@ export const AssessmentModal = ({ isOpen, onClose }: AssessmentModalProps) => {
                   transition={{ duration: 0.25 }}
                   className="flex-1"
                 >
-                  <h2 className="font-serif text-xl md:text-2xl text-foreground mb-6">
+                  <h2 className="font-sans text-xl md:text-2xl font-bold text-foreground mb-6">
                     {questions[currentStep].question}
                   </h2>
                   <div className="space-y-3">
@@ -212,7 +212,7 @@ export const AssessmentModal = ({ isOpen, onClose }: AssessmentModalProps) => {
                         <p className="text-primary text-sm font-medium mb-2">
                           Almost there...
                         </p>
-                        <h2 className="font-serif text-xl md:text-2xl text-foreground">
+                        <h2 className="font-sans text-xl md:text-2xl font-bold text-foreground">
                           Enter your details to check eligibility
                         </h2>
                       </div>
@@ -260,7 +260,7 @@ export const AssessmentModal = ({ isOpen, onClose }: AssessmentModalProps) => {
                       >
                         <Loader2 className="w-10 h-10 text-primary" />
                       </motion.div>
-                      <p className="mt-5 font-serif text-lg text-foreground">
+                      <p className="mt-5 font-sans text-lg text-foreground">
                         Analyzing your profile...
                       </p>
                       <p className="mt-2 text-sm text-muted-foreground">

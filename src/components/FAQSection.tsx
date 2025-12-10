@@ -29,7 +29,7 @@ export const FAQSection = () => {
     return (
         <section className="py-20 px-4 bg-white/30 backdrop-blur-sm">
             <div className="max-w-3xl mx-auto">
-                <h2 className="font-serif text-3xl md:text-5xl text-foreground text-center mb-12">
+                <h2 className="font-sans text-3xl md:text-5xl font-bold text-foreground text-center mb-12">
                     Frequently Asked Questions
                 </h2>
 
@@ -58,7 +58,7 @@ const FAQItem = ({ faq, index }: { faq: any; index: number }) => {
                 onClick={() => setIsOpen(!isOpen)}
                 className="w-full flex items-center justify-between p-6 text-left hover:bg-secondary/20 transition-colors"
             >
-                <span className="font-serif text-lg md:text-xl font-medium text-foreground pr-8">
+                <span className="font-sans text-lg md:text-xl font-medium text-foreground pr-8">
                     {faq.question}
                 </span>
                 <span className={`p-2 rounded-full border border-primary/20 bg-primary/5 text-neon transition-transform duration-300 ${isOpen ? "rotate-45" : ""}`}>

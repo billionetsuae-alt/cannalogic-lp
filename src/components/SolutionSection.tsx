@@ -60,7 +60,7 @@ export const BenefitsSection = () => {
             transition={{ duration: 0.6 }}
             className="section-divider mb-8"
           />
-          <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-foreground mb-4">
+          <h2 className="font-sans text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
             The Science of <span className="text-primary">Homeostasis</span>
           </h2>
           <p className="text-muted-foreground text-base md:text-lg max-w-xl mx-auto">
@@ -86,7 +86,7 @@ export const BenefitsSection = () => {
               <div className="w-16 h-16 md:w-20 md:h-20 rounded-xl overflow-hidden mb-5">
                 <img src={feature.iconUrl} alt={feature.title} className="w-full h-full object-cover" />
               </div>
-              <h3 className="font-serif text-lg md:text-xl text-foreground mb-2">
+              <h3 className="font-sans text-lg md:text-xl font-semibold text-foreground mb-2">
                 {feature.title}
               </h3>
               <p className="text-muted-foreground text-sm md:text-base">
