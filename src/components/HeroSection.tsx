@@ -42,6 +42,9 @@ export const HeroSection = ({ onCTAClick }: HeroSectionProps) => {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-emerald-100/40 via-transparent to-transparent" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-green-100/30 via-transparent to-transparent" />
 
+      {/* Bottom Fade - Smooth blend to next section */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white via-white/60 to-transparent pointer-events-none z-[5]" />
+
       {/* Animated Glow Orbs */}
       <motion.div
         animate={{

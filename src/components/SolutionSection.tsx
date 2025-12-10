@@ -1,24 +1,23 @@
 import { motion } from "framer-motion";
-import { Brain, Leaf, Moon, Scroll } from "lucide-react";
 
 const features = [
   {
-    icon: Brain,
+    iconUrl: "/icon-ecs-brain.png",
     title: "Endocannabinoid System",
     description: "Your body's master regulator for balance and homeostasis.",
   },
   {
-    icon: Leaf,
+    iconUrl: "/icon-natural-harmony.png",
     title: "Natural Harmony",
     description: "Reconnect your mind and body through nature's own pathways.",
   },
   {
-    icon: Moon,
+    iconUrl: "/icon-deep-restoration.png",
     title: "Deep Restoration",
     description: "Support your body's natural rest and recovery cycles.",
   },
   {
-    icon: Scroll,
+    iconUrl: "/icon-ancient-wisdom.png",
     title: "Ancient Wisdom",
     description: "Backed by centuries of traditional use and modern science.",
   },
@@ -84,8 +83,8 @@ export const BenefitsSection = () => {
               whileHover={{ y: -4 }}
               className="feature-card"
             >
-              <div className="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-jungle-light flex items-center justify-center mb-5">
-                <feature.icon className="w-6 h-6 md:w-7 md:h-7 text-primary" />
+              <div className="w-16 h-16 md:w-20 md:h-20 rounded-xl overflow-hidden mb-5">
+                <img src={feature.iconUrl} alt={feature.title} className="w-full h-full object-cover" />
               </div>
               <h3 className="font-serif text-lg md:text-xl text-foreground mb-2">
                 {feature.title}
