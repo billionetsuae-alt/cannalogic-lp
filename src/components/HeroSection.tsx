@@ -68,18 +68,8 @@ export const HeroSection = ({ onCTAClick }: HeroSectionProps) => {
 
       <div className="max-w-5xl mx-auto text-center relative z-10 py-12">
 
-        {/* Pre-headline Badge */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-100 border border-emerald-200 text-emerald-700 text-sm font-medium mb-8"
-        >
-          <Sparkles className="w-4 h-4" />
-          Ministry of AYUSH Approved
-        </motion.div>
 
-        {/* Dramatic Headline with Stagger */}
+        {/* BIG Dramatic Headline - Unlock Higher Consciousness */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -90,15 +80,9 @@ export const HeroSection = ({ onCTAClick }: HeroSectionProps) => {
             variants={wordVariants}
             className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-gray-900 leading-[1.1] tracking-tight"
           >
-            The Ancient Medicine
-          </motion.h1>
-          <motion.h1
-            variants={wordVariants}
-            className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.1] tracking-tight mt-2"
-          >
-            They Tried to{" "}
+            Unlock{" "}
             <span className="relative inline-block">
-              <span className="relative z-10 text-emerald-600">Hide from You</span>
+              <span className="relative z-10 text-emerald-600">Higher Consciousness</span>
               {/* Glow effect behind text */}
               <motion.span
                 animate={{ opacity: [0.5, 0.8, 0.5] }}
@@ -107,18 +91,43 @@ export const HeroSection = ({ onCTAClick }: HeroSectionProps) => {
               />
             </span>
           </motion.h1>
+          <motion.h1
+            variants={wordVariants}
+            className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-gray-900 leading-[1.1] tracking-tight mt-2"
+          >
+            Emotional Balance & Inner Clarity
+          </motion.h1>
+          <motion.h1
+            variants={wordVariants}
+            className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight mt-2"
+          >
+            — <span className="text-gray-900">Naturally.</span>
+          </motion.h1>
         </motion.div>
 
-        {/* Sub-Headline */}
+        {/* Smaller Sub-Headline - Ancient Medicine */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.8 }}
-          className="text-xl md:text-2xl lg:text-3xl text-gray-600 max-w-3xl mx-auto mb-12 font-light leading-relaxed"
+          className="text-xl md:text-2xl lg:text-3xl text-gray-600 max-w-3xl mx-auto mb-8 font-light leading-relaxed"
         >
-          Unlock <span className="text-emerald-600 font-medium">Higher Consciousness</span>,
-          Emotional Balance & Inner Clarity — <span className="font-medium text-gray-900">Naturally.</span>
+          The Ancient Medicine They Tried to <span className="text-emerald-600 font-medium">Hide from You</span>
         </motion.p>
+
+        {/* Cannabis Leaf Image */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
+          className="mb-6"
+        >
+          <img
+            src="/cannabis-leaf.png"
+            alt="Sacred Cannabis Leaf"
+            className="w-48 h-48 md:w-64 md:h-64 mx-auto object-contain"
+          />
+        </motion.div>
 
         {/* VSL Video with Enhanced Styling */}
         <motion.div
@@ -175,7 +184,7 @@ export const HeroSection = ({ onCTAClick }: HeroSectionProps) => {
             onClick={onCTAClick}
             className="relative bg-emerald-600 hover:bg-emerald-700 text-white py-5 px-14 rounded-full text-xl font-bold inline-flex items-center gap-3 shadow-xl shadow-emerald-500/30 transition-all duration-300"
           >
-            Take the Assessment
+            Take the Test
             <motion.span
               animate={{ x: [0, 5, 0] }}
               transition={{ duration: 1.5, repeat: Infinity }}
