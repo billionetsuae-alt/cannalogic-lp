@@ -50,7 +50,7 @@ export const LeafBackground = () => {
                         ease: "linear",
                         delay: leaf.delay
                     }}
-                    className="absolute text-primary/20"
+                    className="absolute text-primary/40"
                     style={{ scale: leaf.scale }}
                 >
                     <LeafIcon className="w-12 h-12 md:w-24 md:h-24" />

@@ -5,9 +5,10 @@ interface HeroSectionProps {
   onCTAClick: () => void;
 }
 
+// Hero Section Component
 export const HeroSection = ({ onCTAClick }: HeroSectionProps) => {
   return (
-    <section className="relative py-12 md:py-20 lg:py-24 px-4 overflow-hidden">
+    <section className="relative py-6 md:py-12 lg:py-16 px-4 overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background pointer-events-none" />
 

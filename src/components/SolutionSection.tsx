@@ -43,7 +43,7 @@ const itemVariants = {
   },
 };
 
-export const SolutionSection = () => {
+export const BenefitsSection = () => {
   return (
     <section className="py-16 md:py-24 lg:py-32 px-4">
       <div className="max-w-5xl mx-auto">
