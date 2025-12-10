@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-export const TheLieSection = () => {
+export const TheLieSection = ({ onCTAClick }: { onCTAClick: () => void }) => {
     return (
         <section className="py-20 px-4 bg-background relative overflow-hidden">
             {/* Background decoration */}
@@ -60,7 +60,7 @@ export const TheLieSection = () => {
                             </div>
                         </div>
                         <div className="text-center mt-4">
-                            <button className="text-neon text-sm font-semibold hover:underline">
+                            <button onClick={onCTAClick} className="text-neon text-sm font-semibold hover:underline">
                                 👉 Discover If You’re Ready for This Path (Scroll)
                             </button>
                         </div>

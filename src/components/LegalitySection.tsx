@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { CheckCircle2, ShieldCheck } from "lucide-react";
 
-export const LegalitySection = () => {
+export const LegalitySection = ({ onCTAClick }: { onCTAClick: () => void }) => {
     return (
         <section className="py-20 px-4 bg-secondary/30">
             <div className="max-w-3xl mx-auto text-center">
@@ -49,7 +49,7 @@ export const LegalitySection = () => {
                     Your safety and legality are fully ensured.
                 </p>
 
-                <button className="text-foreground underline underline-offset-4 hover:text-neon transition-colors">
+                <button onClick={onCTAClick} className="text-foreground underline underline-offset-4 hover:text-neon transition-colors">
                     👉 Begin the Qualification Process
                 </button>
             </div>

@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { HumanBodyECS } from "./HumanBodyECS";
 
 export const ScienceSection = () => {
     return (
@@ -14,17 +15,8 @@ export const ScienceSection = () => {
                         className="order-2 md:order-1 relative"
                     >
                         <div className="aspect-[4/5] rounded-3xl bg-secondary/30 border border-primary/20 relative overflow-hidden flex items-center justify-center p-8">
-                            {/* ECS Network Visualization Placeholder */}
-                            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent pointer-events-none" />
-                            <div className="relative z-10 w-full h-full flex items-center justify-center">
-                                <div className="w-40 h-40 rounded-full border-2 border-primary/30 flex items-center justify-center animate-pulse bg-white/40 backdrop-blur-sm">
-                                    <div className="w-24 h-24 rounded-full bg-primary/20 blur-xl" />
-                                    <span className="font-mono text-neon text-sm">ECS NETWORK</span>
-                                </div>
-                                {/* Connecting dots */}
-                                <div className="absolute top-10 right-10 w-3 h-3 bg-neon rounded-full" />
-                                <div className="absolute bottom-20 left-10 w-2 h-2 bg-neon rounded-full" />
-                            </div>
+                            {/* ECS Human Body Visual */}
+                            <HumanBodyECS />
                         </div>
                     </motion.div>
 

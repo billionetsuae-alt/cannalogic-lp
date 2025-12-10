@@ -56,7 +56,7 @@ const Index = () => {
 
       {/* The Lie Section */}
       <div className="relative z-10">
-        <TheLieSection />
+        <TheLieSection onCTAClick={openAssessment} />
       </div>
 
       {/* Science/ECS Section */}
@@ -76,7 +76,7 @@ const Index = () => {
 
       {/* Legality */}
       <div className="relative z-10">
-        <LegalitySection />
+        <LegalitySection onCTAClick={openAssessment} />
       </div>
 
       {/* Final CTA / Offer Section */}
