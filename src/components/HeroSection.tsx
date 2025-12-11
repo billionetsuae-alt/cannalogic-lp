@@ -83,9 +83,10 @@ export const HeroSection = ({ onCTAClick }: HeroSectionProps) => {
         >
           <motion.h1
             variants={wordVariants}
-            className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-gray-900 leading-[1.1] tracking-tight"
+            className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] tracking-tight"
           >
-            Unlock{" "}
+            <span className="text-gray-900">Unlock</span>
+            <br />
             <span className="relative inline-block">
               <span className="relative z-10 text-emerald-600">Higher Consciousness</span>
               {/* Glow effect behind text */}
@@ -95,18 +96,12 @@ export const HeroSection = ({ onCTAClick }: HeroSectionProps) => {
                 className="absolute inset-0 bg-emerald-400/30 blur-xl -z-10"
               />
             </span>
-          </motion.h1>
-          <motion.h1
-            variants={wordVariants}
-            className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-gray-900 leading-[1.1] tracking-tight mt-2"
-          >
-            Emotional Balance & Inner Clarity
-          </motion.h1>
-          <motion.h1
-            variants={wordVariants}
-            className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight mt-2"
-          >
-            — <span className="text-gray-900">Naturally.</span>
+            <br />
+            <span className="text-gray-900">Emotional Balance &</span>
+            <br />
+            <span className="text-gray-900">Inner Clarity</span>
+            <br />
+            <span className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl">— Naturally.</span>
           </motion.h1>
         </motion.div>
 
