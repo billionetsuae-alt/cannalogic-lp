@@ -120,18 +120,62 @@ export const HeroSection = ({ onCTAClick }: HeroSectionProps) => {
           The Ancient Medicine They Tried to <span className="text-emerald-600 font-medium">Hide from You</span>
         </motion.p>
 
-        {/* Cannabis Leaf Image */}
+        {/* Cannabis Leaf Image - S-Curve Serpentine Glide from Top */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="mb-6"
+          initial={{ opacity: 0.8, y: -600, x: -80, scale: 0.3, rotate: -15 }}
+          animate={{
+            opacity: 1,
+            y: 0,
+            x: [null, 80, -60, 40, -20, 0],  // S-curve zig-zag
+            scale: 1,
+            rotate: [null, 10, -8, 5, -3, 0]  // Subtle tilt while moving
+          }}
+          transition={{
+            duration: 3,
+            delay: 0.3,
+            ease: "easeInOut",
+            x: { duration: 3, ease: "easeInOut" },
+            rotate: { duration: 3, ease: "easeInOut" }
+          }}
+          className="mb-6 relative z-0"
+          style={{ zIndex: -1 }}
         >
-          <img
-            src="/cannabis-leaf.png"
-            alt="Sacred Cannabis Leaf"
-            className="w-64 h-64 md:w-56 md:h-56 lg:w-64 lg:h-64 mx-auto object-contain"
+          {/* Glow effect behind leaf */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{
+              opacity: [0.3, 0.6, 0.3],
+              scale: [0.8, 1.1, 0.8]
+            }}
+            transition={{
+              duration: 3,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 2.5
+            }}
+            className="absolute inset-0 bg-emerald-400/30 rounded-full blur-3xl"
           />
+
+          {/* Floating animation wrapper */}
+          <motion.div
+            initial={{ y: 0 }}
+            animate={{
+              y: [0, -10, 0],
+              rotate: [0, 2, -2, 0]
+            }}
+            transition={{
+              duration: 4,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 2.8
+            }}
+          >
+            <img
+              src="/cannabis-leaf.png"
+              alt="Sacred Cannabis Leaf"
+              className="w-64 h-64 md:w-56 md:h-56 lg:w-64 lg:h-64 mx-auto object-contain drop-shadow-2xl"
+            />
+          </motion.div>
         </motion.div>
 
         {/* VSL Video with Enhanced Styling */}
